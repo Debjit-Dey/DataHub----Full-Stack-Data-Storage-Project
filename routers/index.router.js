@@ -7,7 +7,7 @@ const path = require('path');
 const authMiddleware = require('../middlewares/auth.middleware.js');
 const cloudinary = require('cloudinary').v2;
 
-router.get('/home', 
+router.get('/', 
     authMiddleware, 
     async (req, res) => {
     

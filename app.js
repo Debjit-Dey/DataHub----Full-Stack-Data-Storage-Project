@@ -26,10 +26,11 @@ app.use(express.static('public'));
 //     res.render('index');
 // });
 
-app.use("/user", userRoute);
-app.use("/", homeRoute);
+app.use("/", userRoute);
+app.use("/home", homeRoute);
 
+const port = process.env.PORT || 3000;
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log(`server is listening at ${process.env.PORT}`);
 });

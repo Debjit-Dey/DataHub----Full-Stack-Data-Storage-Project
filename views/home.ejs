@@ -21,7 +21,7 @@
               <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">DataHub</span>
           </a>
           <div class="flex items-center space-x-6 rtl:space-x-reverse">
-            <a href="http://localhost:3000/user/logout" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Logout</a>
+            <a href="http://localhost:3000/logout" class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Logout</a>
               
           </div>
       </div>
@@ -40,7 +40,7 @@
         class="pop hidden fixed top-0 left-0 w-screen h-screen z-50 flex items-center justify-center backdrop-blur"
       >
         <form
-          action="/upload-file"
+          action="/home/upload-file"
           method="post"
           enctype="multipart/form-data"
           class="flex-col items-center justify-center"
@@ -107,14 +107,14 @@
 
           <div class="btn">
             <a
-              href="/download/<%= file.public_id %>"
+              href="/home/download/<%= file.public_id %>"
               download="<%= file.originalName %>"
               class="text-blue-500 hover:text-blue-700 text-lg"
             >
               <i class="ri-download-2-line pr-3"></i>
             </a>
             <a
-              href="/delete/<%= file.public_id %>"
+              href="/home/delete/<%= file.public_id %>"
               class="text-blue-500 hover:text-blue-700 text-lg"
             >
               <i class="ri-delete-bin-5-line"></i>

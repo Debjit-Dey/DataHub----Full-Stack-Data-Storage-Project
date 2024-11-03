@@ -4,7 +4,9 @@ function auth(req, res, next) {
     const token = req.cookies.token;
     // console.log(token);
     if (!token) {
-        return res.status(401).json({ message: "Unauthorized" });
+       return res.status(401).render("messages//authError",
+                {  
+                    message: "Unauthorized access",});
     }
 
     try {
@@ -13,7 +15,9 @@ function auth(req, res, next) {
         req.user = decoded;
         next();
     } catch (error) {
-        return res.status(401).json({ message: "Unauthorized" });
+       return res.status(401).render("messages//authError",
+                {  
+                    message: "Unauthorized access",});
     }
 }
 

@@ -9,12 +9,12 @@ router.get("/test", (req, res) => {
   res.send("test route");
 });
 
-router.get("/register", (req, res) => {
+router.get("/", (req, res) => {
   res.render("register");
 });
 
 router.post(
-  "/register",
+  "/",
   body("email").isEmail().withMessage("Please enter valid email"),
   body("username")
     .isLength({ min: 6 })
@@ -120,7 +120,7 @@ router.post(
 
 router.get("/logout", (req, res) => {
   res.clearCookie("token");
-  res.redirect("/user/login");
+  res.redirect("/login");
 });
 
 module.exports = router;

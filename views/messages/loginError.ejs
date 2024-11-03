@@ -50,14 +50,14 @@
           <% }); %>
         </h1>
         <h2><%= message %></h2>
-        <h2>You wiil be redirected to login page......</h2>
+        <h2>Redirecting to login page......</h2>
       </div>
     </div>
 
     <script>
       try {
         setTimeout(() => {
-          window.location.assign("http://localhost:3000/user/login");
+          window.location.assign("http://localhost:3000/login");
         }, 4000);
       } catch (error) {
         console.log(error);
