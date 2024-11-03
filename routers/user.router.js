@@ -110,9 +110,7 @@ router.post(
         secure: true,
       });
 
-      res.status(200).render("home",{
-        files: user?.files || []
-      });
+      res.status(200).redirect("/home");
     } catch (error) {
         return res.status(400).render("messages//uploadError", {
             errors: error?.array(),
