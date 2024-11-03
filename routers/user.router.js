@@ -105,13 +105,16 @@ router.post(
         process.env.JWT_SECRET_KEY
       );
 
-      res.cookie("token", token);
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,
+      });
 
       res.status(200).render("messages\\loginSuccess.ejs",{
         message: "You are Logged in Successfully",
       });
     } catch (error) {
-        return res.status(400).render("messages//loginError", {
+        return res.status(400).render("messages//uploadError", {
             errors: error?.array(),
             message: error.message,
           });
@@ -121,7 +124,10 @@ router.post(
 );
 
 router.get("/logout", (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+  });
   res.redirect("/login");
 });
 
