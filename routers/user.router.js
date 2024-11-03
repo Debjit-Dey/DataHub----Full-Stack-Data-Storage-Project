@@ -107,10 +107,10 @@ router.post(
 
       res.cookie("token", token);
 
-      res.render("messages\\loginSuccess.ejs");
+      res.status(200).render("messages\\loginSuccess.ejs");
     } catch (error) {
         return res.status(400).render("messages//loginError", {
-            errors: errors?.array(),
+            errors: error?.array(),
             message: error.message,
           });
         
