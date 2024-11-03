@@ -107,7 +107,9 @@ router.post(
 
       res.cookie("token", token);
 
-      res.status(200).render("messages\\loginSuccess.ejs");
+      res.status(200).render("messages\\loginSuccess.ejs",{
+        message: "You are Logged in Successfully",
+      });
     } catch (error) {
         return res.status(400).render("messages//loginError", {
             errors: error?.array(),
