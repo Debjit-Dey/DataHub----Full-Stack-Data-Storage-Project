@@ -105,18 +105,18 @@
         <div
           class="p-2 cursor-pointer rounded-md bg-gray-300 mt-3 flex align-center justify-between"
         >
-          <h1><%= file.originalName %></h1>
+          <h1><%= file?.originalName %></h1>
 
           <div class="btn">
             <a
               href="/home/download/<%= file.public_id %>"
-              download="<%= file.originalName %>"
+              download="<%= file?.originalName %>"
               class="text-blue-500 hover:text-blue-700 text-lg"
             >
               <i class="ri-download-2-line pr-3"></i>
             </a>
             <a
-              href="/home/delete/<%= file.public_id %>"
+              href="/home/delete/<%= file?.public_id %>"
               class="text-blue-500 hover:text-blue-700 text-lg"
             >
               <i class="ri-delete-bin-5-line"></i>
@@ -126,7 +126,7 @@
         <% }) %>
       </div>
     </main>
-    <script src="../scripts/redirect.js"></script>
+  
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <script>
       const openPopup = () => {
