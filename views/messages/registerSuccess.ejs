@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Login Success</title>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center w-screen h-screen">
+    <div id="success-message " class="flex-col gap-2 text-center p-4 w-[80%] md:w-96 align-center justify-center bg-gray-800 text-white">
+    <h1>You are registered Successfully</h1>
+    <h2>Now you can login</h2>
+    <h2>And redirected to login page........</h2>
+</div>
+ 
+    <script>
+        setTimeout(() => {
+            window.location.assign('http://localhost:3000/user/login');
+        }, 4000)
+    </script>
+    
+</body>
+</html>
