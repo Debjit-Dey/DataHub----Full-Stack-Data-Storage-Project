@@ -1,27 +1,24 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const path = require('path');
+const express = require("express");
+const dotenv = require("dotenv");
+const path = require("path");
 // dotenv.config({path: './.env'});
-dotenv.config()
+dotenv.config();
 const app = express();
-const cookieParser = require('cookie-parser');
-const userRoute = require('./routers/user.router.js');
-const homeRoute = require('./routers/index.router.js');
+const cookieParser = require("cookie-parser");
+const userRoute = require("./routers/user.router.js");
+const homeRoute = require("./routers/index.router.js");
 
-const DBConnection= require("./config/db")
+const DBConnection = require("./config/db");
 // console.log(DBConnection)
 DBConnection();
 
-
-
-
 app.use(express.static(path.join(__dirname, "public")));
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // app.get('/', (req, res) => {
 //     // res.send('Hello World!');
@@ -30,9 +27,12 @@ app.use(express.static('public'));
 
 app.use("/", userRoute);
 app.use("/home", homeRoute);
+app.use("/ping", (req, res) => {
+  res.send("pong");
+});
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-    console.log(`server is listening at ${process.env.PORT}`);
+  console.log(`server is listening at ${process.env.PORT}`);
 });
